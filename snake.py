@@ -96,7 +96,8 @@ class SnakeEngine(object):
             # TODO spawn should probably happen after next_head is pushed
             self.spawn_apple()
         else:
-            self.snake.pop()
+            # self.snake.pop() # in jmou's version, prevents snake from growing
+            pass
 
         # Collision detect against snake body or game bounds. We do this after
         # shrinking the tail so you can Ouroboros.
@@ -109,7 +110,7 @@ class SnakeEngine(object):
 
 if __name__ == '__main__':
     # TODO get dimensions from terminal
-    engine = SnakeEngine(80, 40)
+    engine = SnakeEngine(80, 24) # jmou's version has 80, 40
     ui = SnakeUI(engine)
     atexit.register(ui.destroy)
     ui.render()
